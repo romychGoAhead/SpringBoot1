@@ -1,11 +1,13 @@
 package pro.sky.calculator.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.calculator.service.Сalculation;
 
 @RestController
+@RequestMapping("/calculator")
 public class Calculator {
 
     private final Сalculation service;
@@ -14,42 +16,43 @@ public class Calculator {
         this.service = service;
     }
 
-    @GetMapping("/calculator")
+    @GetMapping
     public String calculator() {
         return "<b>Добро пожаловать в калькулятор!</b> ";
 
     }
 
-    @GetMapping("/calculator/plus")
+    @GetMapping("/plus")
     public String plus(@RequestParam("num1") int a, @RequestParam("num2") int b) {
 
-        return String.format("%s + %s = %s", a, b, service.Plus(a, b));
+        return String.format("%s + %s = %s", a, b, service.plus(a, b));
 
     }
 
-    @GetMapping("/calculator/minus")
+    @GetMapping("/minus")
     public String minus(@RequestParam("num1") int a, @RequestParam("num2") int b) {
 
-        return String.format("%s - %s = %s", a, b, service.Minus(a, b));
+        return String.format("%s - %s = %s", a, b, service.minus(a, b));
 
     }
 
-    @GetMapping("/calculator/multiply")
+    @GetMapping("/multiply")
     public String multiply(@RequestParam("num1") int a, @RequestParam("num2") int b) {
 
-        return String.format("%s * %s = %s", a, b, service.Multiply(a, b));
+        return String.format("%s * %s = %s", a, b, service.multiply(a, b));
 
     }
 
-    @GetMapping("/calculator/divide")
+    @GetMapping("/divide")
     public String divide(@RequestParam("num1") int a, @RequestParam("num2") int b) {
         if (b == 0) {
             return "На 0 делить нельзя!";
         }
 
-        return String.format("%s / %s = %s", a, b, service.Divide(a, b));
+        return String.format("%s / %s = %s", a, b, service.divide(a, b));
 
     }
+
 }
 
 

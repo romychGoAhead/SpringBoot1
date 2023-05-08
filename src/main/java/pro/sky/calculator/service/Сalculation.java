@@ -4,22 +4,22 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Сalculation {
-    public int Plus(int a, int b) {
+    public int plus(int a, int b) {
 
         return a + b;
     }
 
-    public int Minus(int a, int b) {
+    public int minus(int a, int b) {
 
         return a - b;
     }
 
-    public int Multiply(int a, int b) {
+    public int multiply(int a, int b) {
 
         return a * b;
     }
 
-    public int Divide(int a, int b) {
+    public int divide(int a, int b) {
 
         return a / b;
     }
